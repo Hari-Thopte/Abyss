@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './DayNightControls.css';
 
 const DayNightControls = ({ onTimeChange }) => {
   const [time, setTime] = useState(0.5);
@@ -6,14 +7,17 @@ const DayNightControls = ({ onTimeChange }) => {
   const handleChange = (e) => {
     const value = parseFloat(e.target.value);
     setTime(value);
-    if (onTimeChange) onTimeChange(value);
+    if (onTimeChange) {
+      onTimeChange(value);
+    }
+    console.log('🌓 Day/Night time changed to:', value);
   };
 
   const getTimeLabel = () => {
-    if (time < 0.2) return '🌙 Midnight';
+    if (time < 0.15) return '🌙 Midnight';
     if (time < 0.35) return '🌅 Sunrise';
     if (time < 0.65) return '☀️ Day';
-    if (time < 0.8) return '🌅 Sunset';
+    if (time < 0.85) return '🌅 Sunset';
     return '🌙 Night';
   };
 

@@ -1,0 +1,7 @@
+.ripple-cursor {
+  cursor: crosshair;
+}
+
+.ripple-cursor * {
+  cursor: crosshair !important;
+}
